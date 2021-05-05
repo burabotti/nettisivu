@@ -1,0 +1,69 @@
+body, html {
+    font-family: 'Open Sans', sans-serif;
+    background-color: hsl(0,25%,41%);
+    text-align: center;
+    margin: 0;
+    -webkit-user-select: none;
+    -webkit-touch-callout: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    
+}
+
+.app {
+    background-color: aqua;
+    display: inline-block;
+    width: 50%;
+    height: 145px;
+    border-radius: 25px;
+    box-shadow: 5px 10px;
+    transition-property: box-shadow;
+    transition-duration: 0.025s;
+
+}
+
+.app h2, h3{
+  margin-top: -20px;
+}
+
+.app:active {
+    box-shadow: 2.5px 5px;
+  }
+
+
+  .upgrade {
+    background-color: aqua;
+    display: inline-block;
+    width: 50%;
+    height: 125px;
+    border-radius: 25px;
+    box-shadow: 5px 10px;
+    margin-bottom: 25px;
+    margin-right: 15px;
+
+    transition-property: box-shadow;
+    transition-duration: 0.025s;
+  }
+
+  .upgrade:active {
+    box-shadow: 2.5px 5px;
+  }
+
+  .container {
+    margin-top: 50px;
+    background-color: brown;
+    display: inline-block;
+    width: 50%;
+    text-align: center;
+  }
+
+  .first-one {
+    margin-top: 20px;
+  }
+
+  .alarm-box {
+    display: inline-block;
+    margin-top: 50px;
+    background-color: aqua;
+  }
