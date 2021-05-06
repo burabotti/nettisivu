@@ -7,10 +7,15 @@
     document.getElementById("upgrade5").addEventListener("mousedown", upgrade5);
     
     let pricesTexts = document.getElementsByClassName("cost");
+    let icons = document.getElementById("icons");
 
     let points = 0;
     let multiplier = 1;  
     let prices = [10, 100, 200, 500, 1000]; // Upgrade prices
+
+    let emojis = "💶";
+    let maxLength = 36;
+    let fontSize = 75;
 
     let clickAudio = new Audio("clicksound.ogg");
     let errorAudio = new Audio("errorsound.ogg");
@@ -27,6 +32,18 @@
         playClickSound();
         points += multiplier;
         updateCreditText();
+        icons.innerHTML += emojis;
+
+
+        // Reset emojis if there is more than 18. - Emojis length is 2, so 18 * 2 = 36.
+        if (icons.innerHTML.length > maxLength) {
+           icons.innerHTML = emojis;
+           maxLength += 36;
+           fontSize -= 5;
+           $("#icons").css("fontSize", fontSize);
+          } 
+        
+
       }
 
 
@@ -115,7 +132,3 @@
         clickAudio.play();
       }
 
-      let volume = document.querySelector("#volume-control");
-      volume.addEventListener("change", function(e) {
-      errorAudio.volume = e.currentTarget.value / 100;
-})
