@@ -1,7 +1,13 @@
+:root {
+  font-size: 20px;
+
+}
+
 body, html {
     font-family: 'Open Sans', sans-serif;
     background-color: hsl(0,25%,41%);
     margin: 0;
+    padding: 0;
     -webkit-user-select: none;
     -webkit-touch-callout: none;
     -moz-user-select: none;
@@ -11,67 +17,32 @@ body, html {
     
 }
 
-.app {
-    background-color: aqua;
-    display: inline-block;
-    text-align: center;
-    width: 25em;
-    border-radius: 25px;
-    box-shadow: 5px 10px;
-    transition-property: box-shadow;
-    transition-duration: 0.025s;
-
+::-webkit-scrollbar {
+  width: 0;  /* Remove scrollbar space */
 }
 
-.app h2, h3{
-  margin-top: -20px;
+
+.upgrade {
+  display: inline-block;
+  width: 25rem;
+  height: 5rem;
+  margin: 1rem;
 }
 
-.app:active {
-    box-shadow: 2.5px 5px;
-  }
+.click-button {
+  position: fixed;
+}
 
 
-  .upgrade {
-    background-color: aqua;
-    width: 25em;
-    height: 8em;
-    display: inline-block;
-    border-radius: 25px;
-    box-shadow: 5px 10px;
-    margin-bottom: 2em;
-    margin-right: 15px;
+.container {
+  display: inline-block;
+  width: min-content;
+  height: 25rem;
+  overflow: scroll;
+  background-color: brown;
+  margin-top: 8rem;
+}
 
-    transition-property: box-shadow;
-    transition-duration: 0.025s;
-  }
-
-  .upgrade:active {
-    box-shadow: 2.5px 5px;
-  }
-
-  .container {
-    text-align: center;
-    background-color: brown;
-    float: right;
-    width: 50%;
-    text-align: center;
-  }
-
-  .first-one {
-    margin-top: 2em;
-  }
-
-  .alarm-box {
-    display: inline-block;
-    background-color: aqua;
-    margin-top: 15px;
-    color: red;
-  }
-
-  .emoji {
-    font-size: 75px;
-    margin: 0;
-    margin-bottom: 5px;
-    padding: 0;
-  }
+#alarmmsg {
+  color: red;
+}
