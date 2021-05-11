@@ -7,24 +7,29 @@ let achievements = {
 }
 
 let achTexts = document.getElementsByClassName("achievement");
+let achievementAudio = new Audio("achsound.ogg");
 
 // Marks achievements as done.
 function achManager() {
     
     if(points >= 50 && achievements.ach1 == 0) {
         achievements.ach1 = 1;
+        achievementUnlocked()
     }
     if(points >= 500 && achievements.ach2 == 0) {
         achievements.ach2 = 1;
+        achievementUnlocked()
     }
     if(points >= 5000 && achievements.ach3 == 0) {
         achievements.ach3 = 1; 
+        achievementUnlocked()
     }
     if(points >= 50000 && achievements.ach4 == 0) {
         achievements.ach4 = 1;  
     }
     if(points >= 500000 && achievements.ach5 == 0) {
         achievements.ach5 = 1;
+        achievementUnlocked()
     }
 
     updateAchTexts();
@@ -57,4 +62,11 @@ function updateAchTexts() {
     } else {
         achTexts[4].innerHTML = "Get 500,000 points" + "<br />" + points.toFixed(2) + "/500,000 ❌";
     }
+}
+
+function achievementUnlocked() {
+    achievementAudio.play();
+    $("#alarmmsg").finish();
+    $("#alarmmsg").css("color", "#00BFFF");
+    $("#alarmmsg").html("🎉 Achievement completed! 🎉").fadeIn(100).delay(1000).fadeOut();
 }

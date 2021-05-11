@@ -28,9 +28,16 @@
     // Update texts to correct values on site load.
     window.onload = function() {
       updateCreditText();
-      
+      loadData();
     };
 
+    // Autosave every 10 seconds.
+    var intervalId = window.setInterval(function(){
+      saveData();
+      $("#alarmmsg").finish();
+      $("#alarmmsg").css("color", "#4CBB17");
+      $("#alarmmsg").html("💾 Saved succesfully. 💾").fadeIn(100).delay(1000).fadeOut();
+    }, 10000);
 
 
       // Add credit when user clicks button.
@@ -185,7 +192,9 @@
         errorAudio.currentTime = 0;
         errorAudio.play();
         $("#alarmmsg").finish();
-        $("#alarmmsg").html("Not enough credits!").fadeIn(100).delay(1000).fadeOut();
+        $("#alarmmsg").css("color", "#ff0000");
+        $("#alarmmsg").html("❌ Not enough credits! ❌").fadeIn(100).delay(1000).fadeOut();
+
       }
 
       function playClickSound() {
