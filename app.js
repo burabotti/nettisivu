@@ -12,9 +12,9 @@
     document.getElementById("upgrade10").addEventListener("mousedown", upgrade10);
     
     let pricesTexts = document.getElementsByClassName("cost");
+    let achTexts = document.getElementsByClassName("achievement");
     
     
-
     let points = 0;
     let multiplier = 1;  
     let prices = [16, 64, 144, 256, 400, 576, 784, 1024, 1296, 1600]; // Upgrade prices
@@ -34,6 +34,7 @@
         playClickSound();
         points += multiplier;
         updateCreditText();
+        achievementManager();
       }
 
 
@@ -158,7 +159,7 @@
         }
       }
 
-
+      // Sets html texts to correct values, very messy.
       function updateCreditText() {
         document.getElementById("pointText").innerHTML = "Credits: " + (Math.round(points * 100) / 100).toFixed(2) + "$" + "<br />";
         document.getElementById("multiplierText").innerHTML = "Credits per click: " + (Math.round(multiplier * 100) / 100).toFixed(2);
@@ -173,6 +174,14 @@
         pricesTexts[8].innerHTML = "Cost: " + prices[8].toFixed(2) + "$";
         pricesTexts[9].innerHTML = "Cost: " + prices[9].toFixed(2) + "$";
       }
+
+      function achievementManager() {
+        
+          // KSDKA
+
+        }
+      
+
 
       // Display not enough credits message.
       function notEnoughCredits() {
