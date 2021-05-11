@@ -1,7 +1,7 @@
 <!doctype html>
 <html>
   <head>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1" charset="UTF-8">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.2/css/bulma.min.css">
@@ -13,8 +13,8 @@
 
     <div class="button is-primary upgrade click-button" id="pointButton">
       <h1 id="pointText">Credits: 0</h1>
-      <h2 id="multiplierText">Credits per click: 1</h2>
-      <h3 id="alarmmsg"></h3>
+      <h1 id="multiplierText">Credits per click: 1</h1>
+      <h1 id="alarmmsg"></h3>
     </div> <br>
 
     
@@ -22,72 +22,75 @@
     <div class="container">
       <div class="button is-info upgrade" id="upgrade1">
         <h1>Upgrade 1</h1>
-        <h2 class="cost">Cost: 50€</h2>
+        <h1 class="cost">Cost: 50€</h1>
       </div>
       <div class="button is-info upgrade" id="upgrade2">
         <h1>Upgrade 2</h1>
-        <h2 class="cost">Cost: 100€</h2>
+        <h1 class="cost">Cost: 100€</h1>
       </div>
       <div class="button is-info upgrade" id="upgrade3">
         <h1>Upgrade 3</h1>
-        <h2 class="cost">Cost: 200€</h2>
+        <h1 class="cost">Cost: 200€</h1>
       </div>
       <div class="button is-info upgrade" id="upgrade4">
         <h1>Upgrade 4</h1>
-        <h2 class="cost">Cost: 500€</h2>
+        <h1 class="cost">Cost: 500€</h1>
       </div>
       <div class="button is-info upgrade" id="upgrade5">
         <h1>Upgrade 5</h1>
-        <h2 class="cost">Cost: 1000€</h2>
+        <h1 class="cost">Cost: 1000€</h1>
       </div>
       <div class="button is-info upgrade" id="upgrade6">
         <h1>Upgrade 6</h1>
-        <h2 class="cost">Cost: 1000€</h2>
+        <h1 class="cost">Cost: 1000€</h1>
       </div>
       <div class="button is-info upgrade" id="upgrade7">
         <h1>Upgrade 7</h1>
-        <h2 class="cost">Cost: 1000€</h2>
+        <h1 class="cost">Cost: 1000€</h1>
       </div>
       <div class="button is-info upgrade" id="upgrade8">
         <h1>Upgrade 8</h1>
-        <h2 class="cost">Cost: 1000€</h2>
+        <h1 class="cost">Cost: 1000€</h1>
       </div>
       <div class="button is-info upgrade" id="upgrade9">
         <h1>Upgrade 9</h1>
-        <h2 class="cost">Cost: 1000€</h2>
+        <h1 class="cost">Cost: 1000€</h1>
       </div>
       <div class="button is-info upgrade" id="upgrade10">
         <h1>Upgrade 10</h1>
-        <h2 class="cost">Cost: 1000€</h2>
+        <h1 class="cost">Cost: 1000€</h1>
       </div>
     </div>
 
     <div class="achievement-container">
       <div class="button is-info achievement">
-        <h1>Achievement 1 <br> Get 50 points.</h1>
+        <h1>Achievement 1 <br> Get 50 points. ❌</h1>
       </div>
       <div class="button is-info achievement">
-        <h1>Achievement 2 <br> Get 500 points.</h1>
+        <h1>Achievement 2 <br> Get 500 points. ❌</h1>
       </div>
       <div class="button is-info achievement">
-        <h1>Achievement 3 <br> Get 5000 points.</h1>
+        <h1>Achievement 3 <br> Get 5000 points. ❌</h1>
       </div>
       <div class="button is-info achievement">
-        <h1>Achievement 4 <br> Get 50,000 points.</h1> 
+        <h1>Achievement 4 <br> Get 50,000 points. ❌</h1> 
       </div>
       <div class="button is-info achievement">
-        <h1>Achievement 5 <br> Get 500,000 points.</h1>
+        <h1>Achievement 5 <br> Get 500,000 points. ❌</h1>
       </div>
       
-    </div>
+    </div> <br>
 
-  
+    <button onclick="saveData()">Save</button>
+    <button onclick="loadData()">Load</button>
+    <button onclick="clearData()">Clear</button>
     
     
 
 
-
+    <script src="achievements.js"></script>
     <script src="app.js"></script>
+    <script src="data.js"></script>
   </body>
   
 </html>

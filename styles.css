@@ -1,6 +1,6 @@
 :root {
   font-size: 20px;
-
+  
 }
 
 body, html {
@@ -48,6 +48,10 @@ body, html {
   border-radius: 1rem;
 }
 
+.container h1 {
+  font-weight: bold;
+}
+
 .achievement-container {
   display: inline-block;
   width: min-content;
@@ -64,4 +68,5 @@ body, html {
   height: 5rem;
   margin: 1rem;
   background-color: #EF476F;
+  font-weight: bold;
 }

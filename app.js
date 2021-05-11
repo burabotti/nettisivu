@@ -12,7 +12,7 @@
     document.getElementById("upgrade10").addEventListener("mousedown", upgrade10);
     
     let pricesTexts = document.getElementsByClassName("cost");
-    let achTexts = document.getElementsByClassName("achievement");
+    
     
     
     let points = 0;
@@ -22,9 +22,13 @@
     let clickAudio = new Audio("clicksound.ogg");
     let errorAudio = new Audio("errorsound.ogg");
 
+    
+
+
     // Update texts to correct values on site load.
     window.onload = function() {
       updateCreditText();
+      
     };
 
 
@@ -34,7 +38,7 @@
         playClickSound();
         points += multiplier;
         updateCreditText();
-        achievementManager();
+        achManager();
       }
 
 
@@ -173,15 +177,8 @@
         pricesTexts[7].innerHTML = "Cost: " + prices[7].toFixed(2) + "$";
         pricesTexts[8].innerHTML = "Cost: " + prices[8].toFixed(2) + "$";
         pricesTexts[9].innerHTML = "Cost: " + prices[9].toFixed(2) + "$";
+        updateAchTexts();
       }
-
-      function achievementManager() {
-        
-          // KSDKA
-
-        }
-      
-
 
       // Display not enough credits message.
       function notEnoughCredits() {
@@ -195,4 +192,7 @@
         clickAudio.currentTime = 0;
         clickAudio.play();
       }
+
+
+
 
