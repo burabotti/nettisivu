@@ -4,6 +4,11 @@ let achievements = {
     ach3: 0,
     ach4: 0,
     ach5: 0,
+    ach6: 0,
+    ach7: 0,
+    ach8: 0,
+    ach9: 0,
+    achi: 0
 }
 
 let achTexts = document.getElementsByClassName("achievement");
@@ -32,6 +37,28 @@ function achManager() {
         achievementUnlocked()
     }
 
+    // Autoclick achievements
+    if(autoclicks >= 10 && achievements.ach6 == 0) {
+        achievements.ach6 = 1;
+        achievementUnlocked()
+    }
+    if(autoclicks >= 100 && achievements.ach7 == 0) {
+        achievements.ach7 = 1;
+        achievementUnlocked()
+    }
+    if(autoclicks >= 1000 && achievements.ach8 == 0) {
+        achievements.ach8 = 1;
+        achievementUnlocked()
+    }
+    if(autoclicks >= 10000 && achievements.ach9 == 0) {
+        achievements.ach9 = 1;
+        achievementUnlocked()
+    }
+    if(autoclicks >= 100000 && achievements.ach10 == 0) {
+        achievements.achi = 1;
+        achievementUnlocked()
+    }
+
     updateAchTexts();
 }
 
@@ -40,29 +67,63 @@ function updateAchTexts() {
     if (achievements.ach1 == 1) {
         achTexts[0].innerHTML = "Get 50 points" + "<br />" + "Achievement done. ✅";
     } else {
-        achTexts[0].innerHTML = "Get 50 points" + "<br />" + points.toFixed(2) + "/50 ❌";
+        achTexts[0].innerHTML = "Get 50 points" + "<br />" + formatter.format(points) + "/50 ❌";
     }
     if (achievements.ach2 == 1) {
         achTexts[1].innerHTML = "Get 500 points" + "<br />" + "Achievement done. ✅";
     } else {
-        achTexts[1].innerHTML = "Get 500 points" + "<br />" + points.toFixed(2) + "/500 ❌";
+        achTexts[1].innerHTML = "Get 500 points" + "<br />" + formatter.format(points) + "/500 ❌";
     }
     if (achievements.ach3 == 1) {
         achTexts[2].innerHTML = "Get 5000 points" + "<br />" + "Achievement done. ✅";
     } else {
-        achTexts[2].innerHTML = "Get 5000 points" + "<br />" + points.toFixed(2) + "/5000 ❌";
+        achTexts[2].innerHTML = "Get 5000 points" + "<br />" + formatter.format(points) + "/5000 ❌";
     }
     if (achievements.ach4 == 1) {
         achTexts[3].innerHTML = "Get 50,000 points" + "<br />" + "Achievement done. ✅";
     } else {
-        achTexts[3].innerHTML = "Get 50,000 points" + "<br />" + points.toFixed(2) + "/50,000 ❌";
+        achTexts[3].innerHTML = "Get 50,000 points" + "<br />" + formatter.format(points) + "/50,000 ❌";
     }
     if (achievements.ach5 == 1) {
         achTexts[4].innerHTML = "Get 500,000 points" + "<br />" + "Achievement done. ✅";
     } else {
-        achTexts[4].innerHTML = "Get 500,000 points" + "<br />" + points.toFixed(2) + "/500,000 ❌";
+        achTexts[4].innerHTML = "Get 500,000 points" + "<br />" + formatter.format(points) + "/500,000 ❌";
+    }
+
+    // Autoclick achievements
+    if (achievements.ach6 == 1) {
+        achTexts[5].innerHTML = "Get 10 autoclicks" + "<br />" + "Achievement done. ✅";
+    } else {
+        achTexts[5].innerHTML = "Get 10 autoclicks" + "<br />" + formatter.format(autoclicks) + "/10 ❌";
+    }
+    if (achievements.ach7 == 1) {
+        achTexts[6].innerHTML = "Get 100 autoclicks" + "<br />" + "Achievement done. ✅";
+    } else {
+        achTexts[6].innerHTML = "Get 100 autoclicks" + "<br />" + formatter.format(autoclicks) + "/100 ❌";
+    }
+    if (achievements.ach8 == 1) {
+        achTexts[7].innerHTML = "Get 1,000 autoclicks" + "<br />" + "Achievement done. ✅";
+    } else {
+        achTexts[7].innerHTML = "Get 1,000 autoclicks" + "<br />" + formatter.format(autoclicks) + "/1000 ❌";
+    }
+    if (achievements.ach9 == 1) {
+        achTexts[8].innerHTML = "Get 10,000 autoclicks" + "<br />" + "Achievement done. ✅";
+    } else {
+        achTexts[8].innerHTML = "Get 10,000 autoclicks" + "<br />" + formatter.format(autoclicks) + "/10,000 ❌";
+    }
+    if (achievements.achi == 1) {
+        achTexts[9].innerHTML = "Get 100,000 autoclicks" + "<br />" + "Achievement done. ✅";
+    } else {
+        achTexts[9].innerHTML = "Get 100,000 autoclicks" + "<br />" + formatter.format(autoclicks) + "/100,000 ❌";
     }
 }
+
+// Checks if achievement is done with autoclicks.
+let checkAch = window.setInterval(function(){
+    achManager();
+  }, 100);
+
+
 
 function achievementUnlocked() {
     achievementAudio.play();

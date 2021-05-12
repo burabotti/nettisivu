@@ -1,27 +1,32 @@
     document.getElementById("pointButton").addEventListener("mousedown", pointManager);
 
-    document.getElementById("upgrade1").addEventListener("mousedown", upgrade1);
-    document.getElementById("upgrade2").addEventListener("mousedown", upgrade2);
-    document.getElementById("upgrade3").addEventListener("mousedown", upgrade3);
-    document.getElementById("upgrade4").addEventListener("mousedown", upgrade4);
-    document.getElementById("upgrade5").addEventListener("mousedown", upgrade5);
-    document.getElementById("upgrade6").addEventListener("mousedown", upgrade6);
-    document.getElementById("upgrade7").addEventListener("mousedown", upgrade7);
-    document.getElementById("upgrade8").addEventListener("mousedown", upgrade8);
-    document.getElementById("upgrade9").addEventListener("mousedown", upgrade9);
-    document.getElementById("upgrade10").addEventListener("mousedown", upgrade10);
+
     
     let pricesTexts = document.getElementsByClassName("cost");
     
     
-    
+    // main variables
     let points = 0;
-    let multiplier = 1;  
-    let prices = [16, 64, 144, 256, 400, 576, 784, 1024, 1296, 1600]; // Upgrade prices
+    let multiplier = 1; 
+    let autoclicks = 0;
 
+    let prices = {
+      price1: 10,
+      price2: 50,
+      price3: 100,
+      price4: 500,
+      price5: 1000,
+      price6: 2000,
+      price7: 5000,
+      price8: 10000,
+      price9: 100000,
+      price10: 500000
+    }; // Upgrade prices
+
+    // audio variables
     let clickAudio = new Audio("clicksound.ogg");
     let errorAudio = new Audio("errorsound.ogg");
-
+    
     
 
 
@@ -31,14 +36,24 @@
       loadData();
     };
 
-    // Autosave every 10 seconds.
-    var intervalId = window.setInterval(function(){
+    // Formats values to currency.
+    var formatter = new Intl.NumberFormat('en-US', {
+      style: 'currency',
+      currency: 'USD',
+    });
+    
+
+    // Autosaves every 10 seconds.
+    let intervalId = window.setInterval(function(){
       saveData();
-      $("#alarmmsg").finish();
-      $("#alarmmsg").css("color", "#4CBB17");
-      $("#alarmmsg").html("💾 Saved succesfully. 💾").fadeIn(100).delay(1000).fadeOut();
     }, 10000);
 
+    // automatic clicker
+    let automaticClicks = window.setInterval(function(){
+      points += (autoclicks / 100);
+      updateCreditText();
+    }, 10);
+    
 
       // Add credit when user clicks button.
       function pointManager() {
@@ -48,142 +63,21 @@
         achManager();
       }
 
-
-      // Click upgrade code
-      function upgrade1() {
-        if (points >= prices[0]) {
-            points -= prices[0];
-            multiplier += 4;
-            prices[0] *= 1.15;
-            updateCreditText();
-            playClickSound();
-        } else {
-          notEnoughCredits();
-        }
-      }
-
-      function upgrade2() {
-        if (points >= prices[1]) {
-            points -= prices[1];
-            multiplier += 8;
-            prices[1] *= 1.15;
-            updateCreditText();
-            playClickSound();
-        } else {
-          notEnoughCredits();
-        }
-      }
-
-      function upgrade3() {
-        if (points >= prices[2]) {
-            points -= prices[2];
-            multiplier += 12;
-            prices[2] *= 1.15;
-            updateCreditText();
-            playClickSound();
-        } else {
-          notEnoughCredits();
-        }
-      }
-
-      function upgrade4() {
-        if (points >= prices[3]) {
-            points -= prices[3];
-            multiplier += 16;
-            prices[3] *= 1.15;
-            updateCreditText();
-            playClickSound();
-        } else {
-          notEnoughCredits();
-        }
-      }
-
-      function upgrade5() {
-        if (points >= prices[4]) {
-            points -= prices[4];
-            multiplier += 20;
-            prices[4] *= 1.15;
-            updateCreditText();
-            playClickSound();
-        } else {
-          notEnoughCredits();
-        }
-      }
-
-      function upgrade6() {
-        if (points >= prices[5]) {
-            points -= prices[5];
-            multiplier += 24;
-            prices[5] *= 1.15;
-            updateCreditText();
-            playClickSound();
-        } else {
-          notEnoughCredits();
-        }
-      }
-
-      function upgrade7() {
-        if (points >= prices[6]) {
-            points -= prices[6];
-            multiplier += 28;
-            prices[6] *= 1.15;
-            updateCreditText();
-            playClickSound();
-        } else {
-          notEnoughCredits();
-        }
-      }
-
-      function upgrade8() {
-        if (points >= prices[7]) {
-            points -= prices[7];
-            multiplier += 32;
-            prices[7] *= 1.15;
-            updateCreditText();
-            playClickSound();
-        } else {
-          notEnoughCredits();
-        }
-      }
-
-      function upgrade9() {
-        if (points >= prices[8]) {
-            points -= prices[8];
-            multiplier += 36;
-            prices[8] *= 1.15;
-            updateCreditText();
-            playClickSound();
-        } else {
-          notEnoughCredits();
-        }
-      }
-
-      function upgrade10() {
-        if (points >= prices[9]) {
-            points -= prices[9];
-            multiplier += 40;
-            prices[9] *= 1.15;
-            updateCreditText();
-            playClickSound();
-        } else {
-          notEnoughCredits();
-        }
-      }
-
       // Sets html texts to correct values, very messy.
       function updateCreditText() {
-        document.getElementById("pointText").innerHTML = "Credits: " + (Math.round(points * 100) / 100).toFixed(2) + "$" + "<br />";
-        document.getElementById("multiplierText").innerHTML = "Credits per click: " + (Math.round(multiplier * 100) / 100).toFixed(2);
-        pricesTexts[0].innerHTML = "Cost: " + prices[0].toFixed(2) + "$";
-        pricesTexts[1].innerHTML = "Cost: " + prices[1].toFixed(2) + "$";
-        pricesTexts[2].innerHTML = "Cost: " + prices[2].toFixed(2) + "$";
-        pricesTexts[3].innerHTML = "Cost: " + prices[3].toFixed(2) + "$";
-        pricesTexts[4].innerHTML = "Cost: " + prices[4].toFixed(2) + "$";
-        pricesTexts[5].innerHTML = "Cost: " + prices[5].toFixed(2) + "$";
-        pricesTexts[6].innerHTML = "Cost: " + prices[6].toFixed(2) + "$";
-        pricesTexts[7].innerHTML = "Cost: " + prices[7].toFixed(2) + "$";
-        pricesTexts[8].innerHTML = "Cost: " + prices[8].toFixed(2) + "$";
-        pricesTexts[9].innerHTML = "Cost: " + prices[9].toFixed(2) + "$";
+        document.getElementById("pointText").innerHTML = "Credits: " + formatter.format(points) + "<br />";
+        document.getElementById("multiplierText").innerHTML = "Credits per click: " + formatter.format(multiplier);
+        document.getElementById("cpsText").innerHTML = "$ per second: " + formatter.format(autoclicks);
+        pricesTexts[0].innerHTML = "Cost: " + formatter.format(prices.price1);
+        pricesTexts[1].innerHTML = "Cost: " + formatter.format(prices.price2);
+        pricesTexts[2].innerHTML = "Cost: " + formatter.format(prices.price3);
+        pricesTexts[3].innerHTML = "Cost: " + formatter.format(prices.price4);
+        pricesTexts[4].innerHTML = "Cost: " + formatter.format(prices.price5);
+        pricesTexts[5].innerHTML = "Cost: " + formatter.format(prices.price6);
+        pricesTexts[6].innerHTML = "Cost: " + formatter.format(prices.price7);
+        pricesTexts[7].innerHTML = "Cost: " + formatter.format(prices.price8);
+        pricesTexts[8].innerHTML = "Cost: " + formatter.format(prices.price9);
+        pricesTexts[9].innerHTML = "Cost: " + formatter.format(prices.price10);
         updateAchTexts();
       }
 
@@ -197,6 +91,7 @@
 
       }
 
+      // Audio manager lmao
       function playClickSound() {
         clickAudio.currentTime = 0;
         clickAudio.play();

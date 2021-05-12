@@ -2,7 +2,8 @@ let player = {
     points: points,
     multiplier: multiplier,
     prices: prices,
-    achievements: achievements
+    achievements: achievements,
+    clickspersecond: autoclicks
 }
 
 function saveData() {
@@ -10,9 +11,14 @@ function saveData() {
     player.multiplier = multiplier;
     player.prices = prices;
     player.achievements = achievements;
+    player.clickspersecond = autoclicks;
     localStorage["player"] = JSON.stringify(player);
+
+    $("#alarmmsg").finish();
+    $("#alarmmsg").css("color", "#4CBB17");
+    $("#alarmmsg").html("💾 Saved succesfully. 💾").fadeIn(100).delay(1000).fadeOut();
     
-    console.log("Saved points: " + player.points + "\n Credits per click: " + player.multiplier + "\n Upgrade prices: " + player.prices);
+    console.log(player);
   }
 
   function loadData() {
@@ -21,6 +27,7 @@ function saveData() {
     multiplier = player.multiplier;
     prices = player.prices;
     achievements = player.achievements;
+    autoclicks = player.clickspersecond;
     updateCreditText();
   }
 
