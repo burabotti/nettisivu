@@ -54,7 +54,7 @@ function achManager() {
         achievements.ach9 = 1;
         achievementUnlocked()
     }
-    if(autoclicks >= 100000 && achievements.ach10 == 0) {
+    if(autoclicks >= 100000 && achievements.achi == 0) {
         achievements.achi = 1;
         achievementUnlocked()
     }
