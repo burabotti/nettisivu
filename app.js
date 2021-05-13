@@ -37,9 +37,9 @@
     };
 
     // Formats values to currency.
-    var formatter = new Intl.NumberFormat('en-US', {
+    var formatter = new Intl.NumberFormat('de-DE', {
       style: 'currency',
-      currency: 'USD',
+      currency: 'EUR',
     });
     
 
@@ -65,9 +65,9 @@
 
       // Sets html texts to correct values, very messy.
       function updateCreditText() {
-        document.getElementById("pointText").innerHTML = "Credits: " + formatter.format(points) + "<br />";
-        document.getElementById("multiplierText").innerHTML = "Credits per click: " + formatter.format(multiplier);
-        document.getElementById("cpsText").innerHTML = "$ per second: " + formatter.format(autoclicks);
+        document.getElementById("pointText").innerHTML = "Money: " + formatter.format(points) + "<br />";
+        document.getElementById("multiplierText").innerHTML = "per click: " + formatter.format(multiplier);
+        document.getElementById("cpsText").innerHTML = "Automatic: " + formatter.format(autoclicks);
         pricesTexts[0].innerHTML = "Cost: " + formatter.format(prices.price1);
         pricesTexts[1].innerHTML = "Cost: " + formatter.format(prices.price2);
         pricesTexts[2].innerHTML = "Cost: " + formatter.format(prices.price3);
